@@ -16,4 +16,11 @@ export default [
       "no-undef": "warn",
     },
   },
+  {
+    settings: {
+      react: {
+        version: "detect", 
+      },
+    },
+  },
 ];
