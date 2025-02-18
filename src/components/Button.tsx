@@ -1,6 +1,10 @@
 
 import { Link } from 'react-router-dom'
 
+// type ButtonProps = { }
+
+// type LinkProps = {}
+
 type LinkTypeProps = {
   to: string
   text: string
