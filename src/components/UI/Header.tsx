@@ -7,17 +7,17 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Button to="/" textOnly>
+            <Button to="/" textOnly={true}>
               Our Mission
             </Button>
           </li>
           <li>
-            <Button to="/sessions" textOnly>
+            <Button to="/sessions" textOnly={true}>
               Browse Sessions
             </Button>
           </li>
           <li>
-            <Button>Upcoming Sessions</Button>
+            <Button textOnly={false}>Upcoming Sessions</Button>
           </li>
         </ul>
       </nav>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 type CommonProps = {
   children: ReactNode;
-  textOnly?: true;
+  textOnly: boolean;
 };
 
 type ButtonProps = CommonProps & Omit<ComponentPropsWithoutRef<"button">, "to">;
@@ -16,13 +16,27 @@ const isLinkProps = (props: ButtonProps | LinkProps): props is LinkProps => {
 };
 
 const Button = (props: ButtonProps | LinkProps) => {
-  const buttonClass = `${props.textOnly ? "button--text-only" : "button"}`;
-
   if (isLinkProps(props)) {
-    return <Link className={buttonClass} {...props}></Link>;
+    const { children, textOnly, ...rest } = props;
+    return (
+      <Link
+        className={`${textOnly ? "button--text-only" : "button"}`}
+        {...rest}
+      >
+        {children}
+      </Link>
+    );
   }
 
-  return <button className={buttonClass} {...props}></button>;
+  const { children, textOnly, ...rest } = props;
+  return (
+    <button
+      className={`${textOnly ? "button--text-only" : "button"}`}
+      {...rest}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;
